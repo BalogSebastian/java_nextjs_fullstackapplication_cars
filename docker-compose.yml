@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  # --- ADATBÁZIS ---
+  postgres:
+    image: postgres:16
+    container_name: autodb_container
+    environment:
+      - POSTGRES_DB=autodb
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin
+    ports:
+      - "5433:5432"
+    networks:
+      - autonewtork
+
+  # --- BACKEND (Java) ---
+  backend:
+    build: .
+    container_name: backend_container
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://autodb_container:5432/autodb
+      - SPRING_DATASOURCE_USERNAME=admin
+      - SPRING_DATASOURCE_PASSWORD=admin
+    networks:
+      - autonewtork
+
+  # --- FRONTEND (Next.js) - EZ AZ ÚJ RÉSZ! ---
+  frontend:
+    build: ./frontend       # Itt keresi a Frontend Dockerfile-t
+    container_name: frontend_container
+    ports:
+      - "3000:3000"         # A 3000-es porton éred el
+    depends_on:
+      - backend             # Megvárja a backendet (opcionális, de szép)
+    networks:
+      - autonewtork
+
+networks:
+  autonewtork:
