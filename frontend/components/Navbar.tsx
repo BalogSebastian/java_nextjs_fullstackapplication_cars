@@ -3,7 +3,6 @@ import Link from "next/link";
 export default function Navbar() {
    return (
       <nav className="w-full absolute top-0 z-50 px-8 py-6 flex justify-between items-center text-white">
-         {/* Bal oldal: Logó */}
          <div className="text-2xl font-bold flex items-center gap-2">
             <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 text-white">
@@ -13,7 +12,6 @@ export default function Navbar() {
             <span className="tracking-tight">AutoCollection</span>
          </div>
 
-         {/* Közép: Menüpontok (csak a dizájn kedvéért, most még nem visznek sehova) */}
          <div className="hidden md:flex space-x-8 text-sm font-medium text-slate-300">
             <Link href="/" className="hover:text-white transition-colors">Kezdőlap</Link>
             <Link href="#" className="hover:text-white transition-colors">Rólunk</Link>
@@ -21,7 +19,6 @@ export default function Navbar() {
             <Link href="#" className="hover:text-white transition-colors">Blog</Link>
          </div>
 
-         {/* Jobb oldal: A GOMB */}
          <Link
             href="/autok"
             className="border-2 border-slate-600 bg-transparent text-white px-6 py-2.5 rounded-full font-bold text-sm hover:bg-blue-600 hover:border-transparent transition-all duration-300"

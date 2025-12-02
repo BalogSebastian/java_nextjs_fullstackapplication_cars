@@ -30,21 +30,17 @@ public class AutoController {
         return autoRepository.save(auto);
     }
 
-    // ITT VOLT A HIBA, JAVÍTVA:
     @PutMapping("/{id}")
     public Auto updateAuto(@PathVariable Long id, @RequestBody Auto frissitettAdatok) {
         return autoRepository.findById(id).map(auto -> {
-            // auto.setMarka(...) <-- EZT TÖRÖLTÜK, MERT MÁR GYÁRTÓ VAN HELYETTE
 
             auto.setTipus(frissitettAdatok.getTipus());
             auto.setGyartasiEv(frissitettAdatok.getGyartasiEv());
             auto.setUzemanyag(frissitettAdatok.getUzemanyag());
 
-            // Ezek most már működni fognak, mert visszakerültek a Modelbe:
             auto.setValto(frissitettAdatok.getValto());
             auto.setLoero(frissitettAdatok.getLoero());
 
-            // Ha a kapcsolatokat is frissíteni akarod (opcionális):
             auto.setGyarto(frissitettAdatok.getGyarto());
             auto.setTulajdonos(frissitettAdatok.getTulajdonos());
 
