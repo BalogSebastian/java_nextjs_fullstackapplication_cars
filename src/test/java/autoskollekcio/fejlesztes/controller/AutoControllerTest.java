@@ -39,16 +39,12 @@ class AutoControllerTest {
 
     @BeforeEach
     void setUp() {
-        // Létrehozunk kamu szülőket, hogy ne legyen null
         Gyarto gyarto = new Gyarto("Audi", "Németország");
         Tulajdonos tulaj = new Tulajdonos("Jani", "+36");
 
-        // Itt már az új szerkezetet használjuk:
         tesztAuto = new Auto(1L, "A4", 2020, "Dízel", "Automata", 190, gyarto, tulaj);
     }
 
-    // ... A többi teszt metódus (testGetAutok, testCreateAuto stb.) maradhat ugyanaz! ...
-    // ... Csak másold be ide őket az előző fájlból, vagy hagyd meg a régieket ...
 
     @Test
     void testGetAutok() throws Exception {

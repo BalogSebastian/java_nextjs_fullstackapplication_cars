@@ -17,7 +17,6 @@ class AutoTest {
         auto.setValto("Manuális");
         auto.setLoero(170);
 
-        // ÚJ RÉSZ: Kapcsolatok tesztelése
         auto.setGyarto(gyarto);
         auto.setTulajdonos(tulaj);
 

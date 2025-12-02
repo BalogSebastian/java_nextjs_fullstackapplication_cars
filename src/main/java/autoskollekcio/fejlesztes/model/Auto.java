@@ -22,9 +22,7 @@ public class Auto {
     private String valto;
     private Integer loero;
 
-    // --- KAPCSOLATOK ---
 
-    // A Márka helyett most már Gyártó van!
     @ManyToOne
     @JoinColumn(name = "gyarto_id")
     private Gyarto gyarto;

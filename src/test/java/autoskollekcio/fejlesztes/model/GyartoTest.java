@@ -18,11 +18,9 @@ class GyartoTest {
         assertEquals("Németország", gyarto.getOrszag());
         assertNotNull(gyarto.getAutok());
 
-        // Konstruktor teszt
         Gyarto gyarto2 = new Gyarto("Audi", "Németország");
         assertEquals("Audi", gyarto2.getNev());
 
-        // Lombok metódusok
         assertNotNull(gyarto.toString());
         assertEquals(gyarto, gyarto);
         assertNotEquals(gyarto, new Object());
